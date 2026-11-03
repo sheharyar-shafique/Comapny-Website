@@ -2,6 +2,13 @@
 
 **Included:** complete premium website (Home, Services, About Us, Contact, Support and 29 service-detail pages); Founder/Director/team photos; Python email API; all contact forms. No external Python packages required.
 
+## Clean, extensionless website URLs
+
+Use the public paths `/`, `/about`, `/services`, `/contact`, `/support`, and `/services/<service-slug>` (e.g. `/services/mobile-app-development`).
+All 29 service detail pages use these clean links. The Python server maps each route to its existing HTML file, so the website remains a simple static HTML + Python application without extra routing dependencies.
+For compatibility, old `.html` URLs return an HTTP 301 redirect to the matching clean path, preserving query parameters. Internal navigation and canonical URLs point directly to the clean paths.
+When deploying to Render or AWS, keep the Python start command `python backend/server.py`; plain static-file hosting by itself will not implement these routes.
+
 ## What is configured and what is not
 - **Configured in code:** HTTPS email API (Resend), contact routing to `info@aozaltechnologies.com`, support routing to `support@aozaltechnologies.com`, Reply-To set to the visitor email, request validation, rate limits, basic anti-spam, browser security headers.
 - **Still required from the domain owner:** Resend account/API key and verification of an outbound sending subdomain, Render deployment, DNS hookup, and live mail tests. No real emails were sent during automated tests.

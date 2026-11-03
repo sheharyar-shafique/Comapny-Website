@@ -346,15 +346,46 @@ class SiteHandler(BaseHTTPRequestHandler):
         self.wfile.write(content)
 
     def do_GET(self) -> None:
-        path = unquote(urlsplit(self.path).path)
+        parsed_url = urlsplit(self.path)
+        path = unquote(parsed_url.path)
         if path == "/api/health":
             self.json_response(200, {"status": "ok"})
             return
         if path.startswith("/api/"):
             self.json_response(404, {"error": "Not found."})
             return
-        if path == "/":
-            path = "/index.html"
+
+        # Serve friendly page paths while keeping the actual HTML filenames.
+        # Permanent redirects prevent duplicate indexed pages and preserve old links.
+        clean_pages = {
+            "/": "/index.html",
+            "/about": "/about.html",
+            "/services": "/services.html",
+            "/contact": "/contact.html",
+            "/support": "/support.html",
+        }
+        legacy_pages = {filename: clean for clean, filename in clean_pages.items()}
+        canonical_path = None
+        if path in legacy_pages:
+            canonical_path = legacy_pages[path]
+        elif (re.fullmatch(r"/services/[a-z0-9-]+[.]html", path)
+              and (ROOT / path.removeprefix("/")).is_file()):
+            canonical_path = path[:-5]
+
+        if canonical_path is not None:
+            destination = canonical_path + ("?" + parsed_url.query if parsed_url.query else "")
+            self.send_response(301)
+            self.send_header("Location", destination)
+            self.send_header("Cache-Control", "public, max-age=300")
+            self.send_header("Content-Length", "0")
+            self.common_headers()
+            self.end_headers()
+            return
+
+        if path in clean_pages:
+            path = clean_pages[path]
+        elif re.fullmatch(r"/services/[a-z0-9-]+", path):
+            path += ".html"
         # All publicly served files are explicitly located under the site root,
         # services/ or assets/. Deny private files and source code.
         parts = Path(path.removeprefix("/")).parts

@@ -55,6 +55,50 @@ class ServerTests(unittest.TestCase):
         self.assertEqual(self.get('/backend/server.py')[0],404)
         self.assertEqual(self.get('/api/health')[0],200)
 
+    def test_clean_urls_and_legacy_redirects(self):
+        from http.client import HTTPConnection
+
+        for path in ("/", "/about", "/services", "/contact", "/support",
+                     "/services/mobile-app-development",
+                     "/services/tiktok-shop-account-management"):
+            with self.subTest(clean_url=path):
+                self.assertEqual(self.get(path)[0], 200)
+
+        catalog = json.loads((server.ROOT / "services-catalog.json").read_text(encoding="utf-8"))
+        for entry in catalog:
+            with self.subTest(service=entry["slug"]):
+                self.assertEqual(self.get("/services/" + entry["slug"])[0], 200)
+
+        for old_path, expected in (
+            ("/index.html", "/"),
+            ("/about.html", "/about"),
+            ("/services.html?campaign=summer", "/services?campaign=summer"),
+            ("/contact.html?service=AI", "/contact?service=AI"),
+            ("/support.html", "/support"),
+            ("/services/mobile-app-development.html", "/services/mobile-app-development"),
+            ("/services/unknown-service.html", None),
+        ):
+            with self.subTest(old_url=old_path):
+                connection = HTTPConnection("127.0.0.1", self.port, timeout=5)
+                try:
+                    connection.request("GET", old_path)
+                    result = connection.getresponse()
+                    if expected is None:
+                        self.assertEqual(result.status, 404)
+                    else:
+                        self.assertEqual(result.status, 301)
+                        self.assertEqual(result.getheader("Location"), expected)
+                    result.read()
+                finally:
+                    connection.close()
+
+        self.assertEqual(self.get("/services/../../backend/server.py")[0], 404)
+        for file in [server.ROOT / "index.html", *sorted((server.ROOT / "services").glob("*.html")),
+                     *(server.ROOT / name for name in ("about.html", "services.html", "contact.html", "support.html"))]:
+            content = file.read_text(encoding="utf-8")
+            with self.subTest(navigation_file=file.name):
+                self.assertNotRegex(content, r"""href=["'][^"']*[.]html(?:[?#"'])""")
+
     def test_reject_missing_fields(self):
         status,body=self.post({'type':'support','name':'A','email':'not-email','message':'ok'})
         self.assertEqual(status,400)
