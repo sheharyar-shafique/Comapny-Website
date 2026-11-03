@@ -95,6 +95,30 @@ footer{border-top:1px solid #252c2a;background:#090b0e}.footer-top{display:flex;
 @media(max-width:800px){.leader-feature{grid-template-columns:1fr}.leader-feature-photo{aspect-ratio:1/1;max-height:none}.leader-feature--founder .leader-feature-photo{order:-1}.leader-feature-content{padding:38px 34px}.leader-feature h3{font-size:clamp(38px,7vw,62px)}.leader-stack{gap:26px}.leader-feature-role{margin-top:26px}}
 @media(max-width:480px){.leader-feature-content{padding:30px 22px}.leader-feature-photo .photo-count{top:26px;left:26px;font-size:8px}.leader-photo-caption{left:26px;right:26px;bottom:24px;font-size:8px}.leader-feature h3{font-size:clamp(32px,9vw,48px)}.leader-feature-foot{font-size:8px}}
 
+
+/* Featured MERN engineering team member — editorial layout with preserved portrait. */
+.team-grid>.mern-teammate{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(280px,.84fr);padding:0;min-height:485px;background:linear-gradient(140deg,#121b17 0%,#0a100e 100%);color:#edf4ee;border:1px solid #344536;overflow:hidden;box-shadow:0 24px 70px rgba(9,23,11,.13);transition:transform .28s,border-color .28s,box-shadow .28s}
+.team-grid>.mern-teammate::before{display:none}
+.team-grid>.mern-teammate:hover{transform:translateY(-4px);border-color:#9bdc63;box-shadow:0 30px 78px rgba(8,22,11,.25)}
+.mern-team-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-width:0;padding:50px clamp(28px,5vw,74px)}
+.mern-team-content .featured-label{font-size:10px}
+.mern-overline{font:9px var(--mono);color:#839787;letter-spacing:.13em;margin:36px 0 0}
+.mern-teammate h3{font:700 clamp(47px,5vw,76px)/.98 var(--display);letter-spacing:-.072em;margin:20px 0 20px;color:#f1f8f1}
+.mern-teammate h3 span{color:var(--lime)}
+.mern-teammate .mern-role{font:600 15px/1.65 var(--body);color:#edf6e9;margin:0}
+.mern-teammate .mern-role span{color:var(--lime);padding:0 5px}
+.mern-teammate .mern-bio{font:400 14px/1.85 var(--body);color:#b8c9b9;margin:0;max-width:620px}
+.mern-teammate .mern-bio strong{color:#ebf8e5;font-weight:700}
+.mern-team-photo{position:relative;overflow:hidden;min-height:485px;background:#373d47;isolation:isolate}
+.mern-team-photo img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center 27%;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.mern-teammate:hover .mern-team-photo img{transform:scale(1.035)}
+.mern-team-photo:after{content:'';pointer-events:none;position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(9,14,12,.37) 0%,transparent 27%,transparent 72%,rgba(8,16,11,.55) 100%)}
+.mern-photo-caption{position:absolute;z-index:2;bottom:27px;left:29px;right:29px;display:flex;justify-content:space-between;gap:12px;color:#e4f6dd;font:9px/1.4 var(--mono);letter-spacing:.08em}
+.mern-photo-caption span:last-child{color:var(--lime)}
+@media(max-width:960px){.team-grid>.mern-teammate{grid-template-columns:minmax(0,1fr) minmax(255px,.85fr)}.mern-team-content{padding:36px 30px}.mern-teammate h3{font-size:clamp(38px,5vw,56px)}.mern-team-photo{min-height:470px}.mern-teammate .mern-bio{font-size:13px}}
+@media(max-width:690px){.team-grid>.mern-teammate{grid-template-columns:1fr}.mern-team-photo{order:-1;min-height:420px;height:420px}.mern-team-photo img{object-position:center 23%}.mern-team-content{padding:36px 25px 30px}.mern-teammate h3{font-size:clamp(42px,10vw,63px)}.mern-overline{margin-top:26px}.mern-teammate .mern-bio{font-size:13.5px}.mern-photo-caption{left:24px;right:24px}}
+@media(max-width:420px){.mern-team-photo{height:365px;min-height:365px}.mern-team-content{padding:28px 21px}.mern-teammate h3{font-size:42px}.mern-teammate .mern-role{font-size:13px}}
+
 </style>
 <link rel="canonical" href="https://aozaltechnologies.com/about">
 <link rel="stylesheet" href="/assets/aozal-brand.css">
@@ -168,7 +192,24 @@ footer{border-top:1px solid #252c2a;background:#090b0e}.footer-top{display:flex;
     <div class="team-card-footer"><span>AOZAL TECHNOLOGIES / THE TEAM</span><span aria-hidden="true">↗</span></div>
   </div>
 </article>
-<div class="teammate"><div class="team-symbol">[ 02 / TEAM ]</div><div class="team-icon">+</div><div class="team-info"><h3>More talent to meet</h3><p>TEAM PROFILE COMING SOON</p></div></div>
+<article class="teammate mern-teammate" aria-labelledby="mern-member-title">
+  <div class="mern-team-content">
+    <div class="featured-label"><span class="live-dot" aria-hidden="true"></span> 02 / SOFTWARE ENGINEERING</div>
+    <div class="mern-overline">AOZAL TECHNOLOGIES &nbsp; / &nbsp; WEB DEVELOPMENT</div>
+    <h3 id="mern-member-title">Building the<br><span>modern web.</span></h3>
+    <p class="mern-role">MERN Stack Web Developer <span aria-hidden="true">/</span> Full-Stack Development</p>
+    <div class="team-divider"></div>
+    <p class="mern-bio">Developing responsive, performance-focused web applications using <strong>MongoDB, Express.js, React, and Node.js.</strong> From polished user interfaces and robust APIs to authentication, database integration, and deployment, focused on creating reliable digital experiences from front end to back end.</p>
+    <div class="team-tags" aria-label="Areas of expertise"><span>MongoDB</span><span>Express.js</span><span>React</span><span>Node.js</span><span>REST APIs</span></div>
+    <div class="team-card-footer"><span>AOZAL TECHNOLOGIES / MERN STACK DEVELOPER</span><span aria-hidden="true">↗</span></div>
+  </div>
+  <div class="mern-team-photo">
+    <img src="/assets/mern-stack-developer.jpg" alt="Portrait of the AOZAL Technologies MERN Stack web developer wearing a navy suit and tie" width="1129" height="1536" loading="lazy" decoding="async">
+    <span class="team-photo-index">02 / OUR TEAM</span>
+    <span class="photo-edge" aria-hidden="true"></span>
+    <div class="mern-photo-caption"><span>SOFTWARE ENGINEERING</span><span>AOZAL / 02</span></div>
+  </div>
+</article>
 <div class="teammate"><div class="team-symbol">[ 03 / TEAM ]</div><div class="team-icon">+</div><div class="team-info"><h3>More talent to meet</h3><p>TEAM PROFILE COMING SOON</p></div></div>
 </div></div></section>
 <section class="cta"><div class="container cta-inner"><div><div class="section-kicker">04 / THE NEXT CHAPTER</div><h2>Let's build<br><span>what's next.</span></h2></div><a class="cta-button" href="/contact">Start a conversation <span aria-hidden="true">↗</span></a></div></section>

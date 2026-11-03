@@ -115,6 +115,15 @@ class ServerTests(unittest.TestCase):
             with self.subTest(asset=path):
                 self.assertEqual(self.get(path)[0], 200)
 
+    def test_mern_team_profile_is_visible(self):
+        about = (server.ROOT / "about.html").read_text(encoding="utf-8")
+        self.assertIn('class="teammate mern-teammate"', about)
+        self.assertIn('src="/assets/mern-stack-developer.jpg"', about)
+        self.assertIn('MERN Stack Web Developer', about)
+        self.assertIn('MongoDB', about)
+        self.assertEqual(self.get("/assets/mern-stack-developer.jpg")[0], 200)
+        self.assertEqual(self.get("/about")[0], 200)
+
     def test_reject_missing_fields(self):
         status,body=self.post({'type':'support','name':'A','email':'not-email','message':'ok'})
         self.assertEqual(status,400)
