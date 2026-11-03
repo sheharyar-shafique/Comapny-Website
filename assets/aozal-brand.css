@@ -1,0 +1,7 @@
+/* Consistent AOZAL Technologies geometric logo across headers and footers. */
+a.brand.aozal-brand{display:inline-flex;align-items:center;justify-content:flex-start;gap:0;flex:0 0 auto;line-height:0;text-decoration:none;min-width:0}
+a.brand.aozal-brand img.aozal-brand-logo{display:block;width:220px;max-width:100%;height:auto;max-height:66px;object-fit:contain;object-position:left center;border:0}
+footer a.brand.aozal-brand img.aozal-brand-logo{width:230px;max-height:76px}
+@media(max-width:1190px){header a.brand.aozal-brand img.aozal-brand-logo{width:192px}}
+@media(max-width:760px){header a.brand.aozal-brand img.aozal-brand-logo{width:172px;max-height:55px}footer a.brand.aozal-brand img.aozal-brand-logo{width:205px}}
+@media(max-width:390px){header a.brand.aozal-brand img.aozal-brand-logo{width:155px}}

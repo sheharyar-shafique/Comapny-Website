@@ -99,6 +99,22 @@ class ServerTests(unittest.TestCase):
             with self.subTest(navigation_file=file.name):
                 self.assertNotRegex(content, r"""href=["'][^"']*[.]html(?:[?#"'])""")
 
+    def test_new_logo_assets_on_every_page(self):
+        from pathlib import Path
+        pages = [server.ROOT / "index.html", server.ROOT / "services.html",
+                 server.ROOT / "about.html", server.ROOT / "contact.html",
+                 server.ROOT / "support.html", *sorted((server.ROOT / "services").glob("*.html"))]
+        self.assertEqual(len(pages), 34)
+        for page in pages:
+            with self.subTest(page=page.name):
+                html = page.read_text(encoding="utf-8")
+                self.assertIn('src="/assets/aozal-logo.svg"', html)
+                self.assertIn('href="/assets/aozal-brand.css"', html)
+                self.assertIn('href="/assets/aozal-icon.svg"', html)
+        for path in ("/assets/aozal-logo.svg", "/assets/aozal-icon.svg", "/assets/aozal-brand.css"):
+            with self.subTest(asset=path):
+                self.assertEqual(self.get(path)[0], 200)
+
     def test_reject_missing_fields(self):
         status,body=self.post({'type':'support','name':'A','email':'not-email','message':'ok'})
         self.assertEqual(status,400)
