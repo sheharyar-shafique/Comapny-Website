@@ -64,6 +64,37 @@ footer{border-top:1px solid #252c2a;background:#090b0e}.footer-top{display:flex;
 @media(max-width:960px){.featured-teammate{grid-template-columns:minmax(240px,.78fr) minmax(0,1.22fr)}.featured-team-photo{min-height:455px}.featured-team-content{padding:32px}.featured-teammate h3{font-size:61px}.featured-teammate .team-bio{font-size:12.5px}}
 @media(max-width:690px){.team-grid{grid-template-columns:1fr}.featured-teammate{grid-column:1;grid-template-columns:1fr}.featured-team-photo{min-height:350px;height:350px}.featured-team-photo img{object-position:center 27%}.featured-team-content{padding:32px 24px 23px}.featured-teammate h3{font-size:63px}.featured-teammate .team-bio{font-size:13.5px}.team-tags{margin-top:20px}.team-card-footer{margin-top:24px}.teammate:not(.featured-teammate){min-height:240px}}
 
+
+/* Leadership feature editorial layout: director first, CEO in a separate row below. */
+.leader-stack{display:flex;flex-direction:column;gap:32px}
+.leader-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-width:0;background:#101714;border:1px solid #2b382f;overflow:hidden;box-shadow:0 24px 75px rgba(0,0,0,.16);transition:border-color .25s,transform .25s}
+.leader-feature:hover{border-color:rgba(199,255,96,.58);transform:translateY(-3px)}
+.leader-feature--director{background:linear-gradient(120deg,#111a15,#101612 68%)}
+.leader-feature--founder{background:linear-gradient(120deg,#141a1b,#0f1713)}
+.leader-feature-photo{position:relative;min-width:0;overflow:hidden;background:#303135;aspect-ratio:1/1}
+.leader-feature-photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center center}
+.leader-feature-photo--director{background:#454449}
+.leader-feature-photo--founder{background:#33312f}
+.leader-feature-photo:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.4),transparent 21%,transparent 76%,rgba(0,0,0,.55))}
+.leader-feature-photo:before{content:'';position:absolute;z-index:2;pointer-events:none;inset:18px;border:1px solid rgba(199,255,96,.24)}
+.leader-feature-photo .photo-count{z-index:3;top:34px;left:34px;background:rgba(5,12,6,.7);color:var(--lime);padding:9px 13px;border:1px solid rgba(199,255,96,.25);font-size:10px}
+.leader-photo-caption{position:absolute;bottom:33px;left:34px;right:34px;z-index:3;display:flex;justify-content:space-between;gap:16px;align-items:center;font:10px var(--mono);letter-spacing:.13em;color:#e8f4e6}
+.leader-photo-caption span{color:var(--lime);font-size:22px;line-height:1}
+.leader-feature-content{padding:clamp(32px,5vw,74px);min-width:0;display:flex;flex-direction:column;justify-content:center}
+.leader-feature-index{display:flex;align-items:center;gap:16px;color:#b7cfb1;font:10px var(--mono);letter-spacing:.16em}
+.leader-feature-index .leader-rule{height:1px;width:34px;background:var(--lime)}
+.leader-feature-role{margin:38px 0 17px;color:var(--lime);font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}
+.leader-feature h3{font:700 clamp(38px,4.5vw,67px)/1 var(--display);letter-spacing:-.07em;margin:0 0 29px;overflow-wrap:anywhere}
+.leader-feature h3 span{color:#d6f6b2}
+.leader-accent{height:3px;width:72px;background:var(--lime);margin-bottom:28px}
+.leader-feature p{color:#b9c5ba;font:14px/1.85 var(--body);margin:0 0 16px;max-width:520px}
+.leader-feature p strong{color:#edf4ec}
+.leader-feature-foot{display:flex;justify-content:space-between;gap:15px;border-top:1px solid rgba(255,255,255,.16);margin-top:22px;padding-top:20px;font:9px/1.7 var(--mono);letter-spacing:.07em;color:#9daa9c}
+.leader-feature-foot span:last-child{color:var(--lime);flex-shrink:0}
+@media(max-width:1100px){.leader-feature-content{padding:35px}.leader-feature h3{font-size:clamp(34px,4.1vw,54px)}.leader-feature-role{margin-top:24px}.leader-feature p{font-size:13px;line-height:1.7}}
+@media(max-width:800px){.leader-feature{grid-template-columns:1fr}.leader-feature-photo{aspect-ratio:1/1;max-height:none}.leader-feature--founder .leader-feature-photo{order:-1}.leader-feature-content{padding:38px 34px}.leader-feature h3{font-size:clamp(38px,7vw,62px)}.leader-stack{gap:26px}.leader-feature-role{margin-top:26px}}
+@media(max-width:480px){.leader-feature-content{padding:30px 22px}.leader-feature-photo .photo-count{top:26px;left:26px;font-size:8px}.leader-photo-caption{left:26px;right:26px;bottom:24px;font-size:8px}.leader-feature h3{font-size:clamp(32px,9vw,48px)}.leader-feature-foot{font-size:8px}}
+
 </style>
 </head>
 <body>
@@ -78,7 +109,48 @@ footer{border-top:1px solid #252c2a;background:#090b0e}.footer-top{display:flex;
 <section class="hero" aria-labelledby="hero-title"><div class="container hero-grid"><div class="hero-content"><div class="eyebrow">ABOUT US <span> / </span> THE STORY BEHIND AOZAL</div><h1 id="hero-title"><span class="light">Rooted in</span><span class="outline">legacy.</span><span class="green">Built for</span><span class="green">tomorrow.</span></h1><p class="hero-desc">A new generation of technology. An entrepreneurial spirit inspired by years of work in industry. This is how the AOZAL story enters its next chapter.</p><a href="#our-story" class="inline-link">Discover our story <span aria-hidden="true">↘</span></a></div><div class="orbit-scene" aria-hidden="true"><div class="orb-glow"></div><div class="orb-ring r1"></div><div class="orb-ring r2"></div><div class="orb-ring r3"></div><div class="orb-ring r4"></div><div class="orb-ring r5"></div><div class="monogram-core"><strong>A</strong></div><div class="orbit-badge a"><b>01 /</b> A HISTORY OF ENTERPRISE</div><div class="orbit-badge b"><b>02 /</b> A FUTURE IN TECHNOLOGY</div></div></div><div class="hero-bottom"><div class="container"><span>AOZAL TECHNOLOGIES · OUR ORIGIN</span><span>PAST INFORMS THE FUTURE</span><span><b>↘</b> SCROLL TO DISCOVER</span></div></div></section>
 <section class="story" id="our-story"><div class="container"><div class="story-heading reveal"><div><div class="section-kicker">01 / WHERE IT BEGAN</div><h2>One name.<br><em>Two worlds.</em></h2></div><p>Our roots connect the precision of industrial sourcing with the possibilities of modern software, artificial intelligence, and digital commerce.</p></div><div class="story-main reveal"><div class="legacy-visual" aria-hidden="true"><div class="legacy-data">[ AOZAL / ORIGIN ]</div><div class="legacy-seal"><span>A</span><small>AN IDEA CONTINUES</small></div><div class="legacy-caption">INDUSTRIAL ROOTS → DIGITAL FUTURE</div></div><div class="story-copy"><div class="section-kicker">THE STORY</div><h3>From industrial machinery to intelligent technology.</h3><p><strong>Aozal Trading Company</strong> supplies machinery parts to factories, sourcing and importing industrial components from China and other countries to help businesses keep moving.</p><p>Inspired by that enterprise and the AOZAL name, <strong>Aozal Technologies</strong> begins a new chapter: bringing creativity, software engineering, AI services, and e-commerce expertise into one technology-focused company.</p><p>Different industries, connected by a belief in building useful things, solving real problems, and moving forward.</p><div class="story-note">TWO DISTINCT INDUSTRIES, CONNECTED BY AN ENTREPRENEURIAL STORY AND A SHARED NAME.</div></div></div></div></section>
 <section class="bridge" aria-label="Brand philosophy"><div class="container bridge-inner"><h3>Built on an entrepreneurial mindset.<br>Powered by a new generation of ideas.</h3><div class="bridge-note">AOZAL TRADING → AOZAL TECHNOLOGIES<br>A STORY OF INSPIRATION</div></div></section>
-<section class="leaders" id="leadership"><div class="container"><div class="leaders-heading reveal"><div><div class="section-kicker">02 / THE PEOPLE BEHIND THE NAME</div><h2>People with<br><span>purpose.</span></h2></div><p>Every strong story has people behind it. The people shaping our technology vision and the entrepreneurial roots behind the AOZAL name.</p></div><div class="profiles"><article class="profile reveal"><div class="profile-photo has-portrait"><img class="profile-portrait" src="assets/muhammad-sheharyar-shafique.jpg" alt="Portrait of Muhammad Sheharyar Shafique, Founder and CEO of Aozal Technologies" width="1145" height="1374" loading="lazy"><span class="photo-count">[ 01 / AOZAL TECHNOLOGIES ]</span></div><div class="profile-copy"><div class="profile-label">FOUNDER &amp; CEO · AOZAL TECHNOLOGIES</div><h3>Muhammad Sheharyar Shafique</h3><p>Leading the technology vision of Aozal Technologies — building solutions in AI, software, applications, cloud infrastructure, and e-commerce.</p><div class="profile-foot">FOUNDER &amp; CEO · AOZAL TECHNOLOGIES</div></div></article><article class="profile reveal"><div class="profile-photo has-portrait"><img class="profile-portrait" src="assets/muhammad-shafique-aozal.jpg" alt="Portrait of Muhammad Shafique Aozal, Director" width="1248" height="1248" loading="lazy"><span class="photo-count">[ 02 / THE AOZAL LEGACY ]</span></div><div class="profile-copy"><div class="profile-label">DIRECTOR · AOZAL TECHNOLOGIES</div><h3>Muhammad Shafique Aozal</h3><p>Bringing an entrepreneurial legacy rooted in <strong>Aozal Trading Company</strong>, where he supplies machinery parts to factories and sources industrial components from China and other international markets. His experience and vision inspired the AOZAL name behind Aozal Technologies.</p><div class="profile-foot">DIRECTOR · INDUSTRIAL ENTREPRENEUR · AOZAL TRADING COMPANY</div></div></article></div></div></section>
+<section class="leaders" id="leadership">
+  <div class="container">
+    <div class="leaders-heading reveal">
+      <div><div class="section-kicker">02 / THE PEOPLE BEHIND THE NAME</div><h2>People with<br><span>purpose.</span></h2></div>
+      <p>Two generations of ambition. A legacy of industrial entrepreneurship and a new vision for intelligent technology.</p>
+    </div>
+    <div class="leader-stack">
+      <article class="leader-feature leader-feature--director reveal" aria-labelledby="director-name">
+        <div class="leader-feature-photo leader-feature-photo--director">
+          <img src="assets/muhammad-shafique-aozal.jpg" alt="Muhammad Shafique Aozal in a dark suit, white shirt and blue tie" width="1248" height="1248" loading="lazy">
+          <span class="photo-count">[ 01 / THE AOZAL LEGACY ]</span>
+          <div class="leader-photo-caption">THE LEGACY BEHIND THE NAME <span aria-hidden="true">↗</span></div>
+        </div>
+        <div class="leader-feature-content">
+          <span class="leader-feature-index">01 <span class="leader-rule"></span> THE DIRECTOR</span>
+          <div class="leader-feature-role">DIRECTOR · AOZAL TECHNOLOGIES</div>
+          <h3 id="director-name">Muhammad<br><span>Shafique Aozal.</span></h3>
+          <div class="leader-accent" aria-hidden="true"></div>
+          <p>With an entrepreneurial foundation in <strong>Aozal Trading Company</strong>, Muhammad Shafique Aozal has built a business supplying machinery parts to factories and importing industrial components from China and other international markets.</p>
+          <p>His experience, commitment and vision inspired the AOZAL name — creating the legacy behind Aozal Technologies.</p>
+          <div class="leader-feature-foot"><span>INDUSTRIAL ENTREPRENEUR · AOZAL TRADING COMPANY</span><span aria-hidden="true">01 / 02</span></div>
+        </div>
+      </article>
+      <article class="leader-feature leader-feature--founder reveal" aria-labelledby="founder-name">
+        <div class="leader-feature-content">
+          <span class="leader-feature-index">02 <span class="leader-rule"></span> THE NEXT CHAPTER</span>
+          <div class="leader-feature-role">FOUNDER &amp; CEO · AOZAL TECHNOLOGIES</div>
+          <h3 id="founder-name">Muhammad<br><span>Sheharyar Shafique.</span></h3>
+          <div class="leader-accent" aria-hidden="true"></div>
+          <p>Building on the AOZAL legacy with a technology-first vision, Muhammad Sheharyar Shafique leads Aozal Technologies across AI, custom software, mobile applications, cloud infrastructure and e-commerce.</p>
+          <p>His focus is on building useful, forward-thinking digital solutions that help businesses grow.</p>
+          <div class="leader-feature-foot"><span>FOUNDER &amp; CEO · AOZAL TECHNOLOGIES</span><span aria-hidden="true">02 / 02</span></div>
+        </div>
+        <div class="leader-feature-photo leader-feature-photo--founder">
+          <img src="assets/muhammad-sheharyar-shafique.jpg" alt="Muhammad Sheharyar Shafique seated at a desk in a black suit" width="1145" height="1374" loading="lazy">
+          <span class="photo-count">[ 02 / THE NEXT GENERATION ]</span>
+          <div class="leader-photo-caption">A FUTURE IN TECHNOLOGY <span aria-hidden="true">↗</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="team" id="team"><div class="container"><div class="team-heading reveal"><div><div class="section-kicker">03 / OUR PEOPLE</div><h2>The minds<br>behind the work.</h2></div><p>Specialists bringing focused expertise and fresh thinking to every client project.</p></div>
 <div class="team-grid reveal">
 <article class="teammate featured-teammate" aria-labelledby="tayyab-name">
