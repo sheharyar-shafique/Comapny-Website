@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b0e" />
+  <meta name="description" content="Aozal Technologies builds AI-powered products, intelligent automations, custom software, and remarkable digital experiences for ambitious businesses." />
+  <meta property="og:title" content="Aozal Technologies — Building What's Next" />
+  <meta property="og:description" content="Intelligent technology. Unreasonable ambition. Real-world impact." />
+  <title>Aozal Technologies — Building What's Next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #090b0e;
+      --bg2: #0d1014;
+      --panel: #12161b;
+      --panel2: #151a20;
+      --stroke: rgba(228,246,255,.12);
+      --stroke-heavy: rgba(228,246,255,.2);
+      --text: #f2f5f4;
+      --muted: #949ba0;
+      --quiet: #626b71;
+      --accent: #c7ff60;
+      --accent-dark: #92cb2e;
+      --violet: #7867ff;
+      --blue: #3b82f6;
+      --mono: 'Space Mono', monospace;
+      --display: 'Space Grotesk', Arial, sans-serif;
+      --body: 'DM Sans', Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; font-family: var(--body); background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button,input,textarea,select { font: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    .container { width: min(100% - 112px, 1420px); margin-inline: auto; }
+    .noise { position: fixed; z-index: 15; inset: 0; pointer-events: none; opacity: .115; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E"); }
+    .skip { position: fixed; top: -80px; left: 14px; z-index: 110; background: var(--accent); color: var(--bg); padding: 13px 18px; border-radius: 6px; }
+    .skip:focus { top: 14px; }
+    .site-nav { position: fixed; z-index: 100; width: 100%; height: 90px; border-bottom: 1px solid rgba(255,255,255,.065); transition: height .3s,background .3s,backdrop-filter .3s; }
+    .site-nav.scrolled { background: rgba(9,11,14,.87); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); height: 78px; border-bottom-color: var(--stroke); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+    .brand-symbol { width: 43px; height: 43px; display: grid; place-items: center; background: var(--accent); clip-path: polygon(20% 0,80% 0,100% 50%,80% 100%,20% 100%,0 50%); }
+    .brand-symbol svg { height: 28px; width: 28px; }
+    .brand-wordmark { font-family: var(--display); font-weight: 700; font-size: 19px; letter-spacing: -.8px; line-height: .95; }
+    .brand-wordmark small { display: block; font-family: var(--mono); font-size: 8px; font-weight: 400; letter-spacing: 3.8px; margin-top: 7px; color: #a8b0aa; }
+    .nav-links { display: flex; gap: 22px; align-items: center; margin-left: auto; margin-right: 37px; }
+    .nav-links a { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #c0c5c5; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-actions { display: flex; gap: 16px; align-items: center; }
+    .nav-cta { font-weight: 700; font-size: 13px; background: var(--accent); color: #11150a; padding: 15px 18px 15px 23px; display: inline-flex; gap: 20px; align-items: center; transition: transform .2s,background .2s; }
+    .nav-cta:hover { transform: translateY(-2px); background: #d7ff99; }
+    .square-arrow { width: 28px; height: 28px; display: grid; place-items: center; background: #141c0a; color: var(--accent); font-size: 17px; font-weight: 400; }
+    .menu-btn { display: none; width: 40px; height: 40px; background: none; border: 1px solid var(--stroke-heavy); color: white; align-items: center; justify-content: center; }
+    .menu-btn svg { width: 22px; }
+    .hero { min-height: 825px; overflow: hidden; position: relative; background: radial-gradient(ellipse at 77% 45%,rgba(48,63,68,.2),transparent 46%),var(--bg); padding-top: 90px; }
+    .hero::before { content: ''; pointer-events: none; position: absolute; inset: 0; background-image: linear-gradient(to right,rgba(255,255,255,.027) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 91px 91px; mask-image: linear-gradient(90deg,transparent 1%,#000 55%,#000 100%); opacity: .65; }
+    .hero::after { content: ''; position: absolute; right: -18%; top: -55%; width: 850px; height: 850px; background: radial-gradient(circle,rgba(117,101,255,.06),transparent 65%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 52% 48%; position: relative; z-index: 2; min-height: 670px; align-items: center; }
+    .hero-copy { padding: 74px 0 68px; position: relative; z-index: 8; }
+    .eyebrow { display: flex; align-items: center; gap: 13px; font-family: var(--mono); font-size: 10px; color: #b8c1bb; letter-spacing: .11em; text-transform: uppercase; }
+    .eyebrow .signal { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(199,255,96,.1),0 0 26px rgba(199,255,96,.6); animation: blink 2.8s ease-in-out infinite; }
+    @keyframes blink { 0%,100% { box-shadow: 0 0 0 5px rgba(199,255,96,.1),0 0 26px rgba(199,255,96,.5); } 50% { box-shadow: 0 0 0 9px rgba(199,255,96,0),0 0 30px rgba(199,255,96,.25); } }
+    .hero h1 { margin: 33px 0 24px; font-family: var(--display); font-size: clamp(70px,7.05vw,112px); line-height: .97; letter-spacing: -.082em; font-weight: 700; }
+    .hero h1 .indent { display: block; padding-left: 0; }
+    .hero h1 .accent-line { display: block; color: var(--accent); position: relative; }
+    .hero h1 .accent-line::after { content: ''; width: .12em; height: .12em; border-radius: 50%; background: var(--text); display: inline-block; margin-left: .055em; }
+    .hero-description { color: #a9b0ae; font-size: 16px; line-height: 1.8; max-width: 510px; margin: 0 0 35px; }
+    .hero-ctas { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 24px; justify-content: space-between; background: var(--accent); color: #0a1001; padding: 18px 19px 18px 24px; min-height: 58px; font-weight: 700; font-size: 13px; transition: background .2s, transform .2s, box-shadow .2s; border: 0; }
+    .btn-primary:hover { background: #dcffa5; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(199,255,96,.12); }
+    .btn-primary svg { width: 19px; height: 19px; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 11px; color: #e6e9e7; font-size: 13px; font-weight: 700; padding: 17px 4px; border-bottom: 1px solid #626b63; transition: gap .2s,color .2s; }
+    .btn-secondary:hover { gap: 18px; color: var(--accent); }
+    .hero-footnote { margin-top: 71px; display: flex; align-items: center; gap: 18px; font-family: var(--mono); font-size: 10px; color: #858e88; letter-spacing: .05em; }
+    .hero-footnote .line { width: 48px; height: 1px; background: #505c50; }
+    .hero-side-label { position: absolute; right: 29px; top: 50%; transform: translateY(-50%); z-index: 3; writing-mode: vertical-rl; font-family: var(--mono); font-size: 9px; letter-spacing: 3px; color: #7c8584; }
+    .hero-visual { height: 650px; position: relative; isolation: isolate; display: flex; align-items: center; justify-content: center; margin-left: -20px; }
+    .visual-halo { position: absolute; width: 610px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(167,255,93,.18) 0%,rgba(79,109,84,.09) 31%,rgba(71,62,184,.04) 54%,transparent 70%); filter: blur(9px); animation: breathe 7s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(.94); opacity: .75; } 50% { transform: scale(1.1); opacity: 1; } }
+    .orb-ring { position: absolute; border-radius: 50%; pointer-events: none; }
+    .orb-ring.outer { width: 553px; height: 553px; border: 1px solid rgba(194,222,181,.12); box-shadow: inset 0 0 48px rgba(125,153,118,.02); }
+    .orb-ring.outer::before,.orb-ring.outer::after { content:''; position:absolute; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 13px var(--accent); }
+    .orb-ring.outer::before { left: 42px; top: 120px; } .orb-ring.outer::after { right: 25px; bottom: 155px; background: var(--violet); box-shadow:0 0 13px var(--violet); }
+    .orb-ring.mid { width: 476px; height: 476px; border: 1px dashed rgba(160,198,177,.2); animation:spin 65s linear infinite; }
+    .orb-ring.mid::before { content:''; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: #cedcbf; border-radius: 50%; }
+    .orb-ring.inner { width: 373px; height: 373px; border: 1px solid rgba(194,241,146,.23); transform: rotate(-23deg); }
+    .orb-ring.tilt { width: 518px; height: 196px; border: 1px solid rgba(199,255,96,.2); transform: rotate(-27deg); box-shadow: 0 0 25px rgba(199,255,96,.025); }
+    .orb-ring.tilt2 { width: 478px; height: 280px; border: 1px solid rgba(166,165,255,.12); transform: rotate(52deg); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .orb { position: relative; width: 357px; height: 357px; border-radius: 50%; background: radial-gradient(circle at 27% 21%,rgba(197,255,178,.8) 0%,rgba(113,185,125,.49) 8%,rgba(51,93,86,.91) 22%,#102b2c 48%,#091317 70%,#080e13 100%); border: 1px solid rgba(203,255,168,.37); box-shadow: inset -22px -38px 70px #04080d,inset 10px 11px 30px rgba(224,255,204,.13),0 0 40px rgba(189,255,126,.12),0 0 135px rgba(126,252,93,.095); overflow: hidden; display:flex;align-items:center;justify-content:center; }
+    .orb::before { content:''; position:absolute;inset:-18%; border-radius:50%; background: repeating-radial-gradient(ellipse at 34% 32%,transparent 0,transparent 15px,rgba(167,255,194,.1) 16px,transparent 17px); transform: rotate(-19deg) scaleX(.74); }
+    .orb::after { content:''; position:absolute;inset:0; background: repeating-linear-gradient(108deg,transparent 0,transparent 13px,rgba(151,244,174,.055) 14px,transparent 15px); mask-image:radial-gradient(ellipse,black 20%,transparent 75%); }
+    .orb-grid { position:absolute;inset:0;width:100%;height:100%;opacity:.68; }
+    .orb-letter { position: relative; z-index: 2; font: 700 138px var(--display); letter-spacing: -.12em; padding-right: 20px; color: rgba(229,255,218,.91); text-shadow: 0 0 24px rgba(201,255,183,.52),0 0 75px rgba(133,255,115,.21); transform: translateY(-7px); }
+    .orb-letter::before { content: ''; width: 75px; height: 9px; background: #0f3027; position: absolute; left: 41px; top: 89px; transform: rotate(-1deg); box-shadow: 0 0 15px rgba(74,139,82,.8); }
+    .orb-gloss { position: absolute; width: 140px; height: 70px; border-radius: 50%; background: rgba(237,255,205,.4); top: 18px; left: 80px; filter: blur(32px); transform: rotate(-20deg); opacity: .65; }
+    .orb-caption { position: absolute; z-index: 4; bottom: 72px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 8px; letter-spacing: .35em; white-space: nowrap; color: #d3f4ba; }
+    .orbit-card { position:absolute;z-index:5; border:1px solid rgba(202,237,220,.19); background:linear-gradient(133deg,rgba(26,37,40,.84),rgba(15,20,26,.76)); box-shadow:0 16px 48px rgba(0,0,0,.33), inset 0 1px rgba(255,255,255,.045); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+    .orbit-card.one { top: 101px; right: -7px; padding: 17px 22px 19px; min-width: 186px; animation: floatOne 6.3s ease-in-out infinite; }
+    .orbit-card.two { left: -32px; bottom: 135px; padding: 17px 21px; min-width: 194px; animation: floatTwo 7.4s ease-in-out infinite; }
+    .orbit-card.three { right: -26px; bottom: 88px; padding: 16px 18px; width: 191px; animation: floatOne 5.5s ease-in-out infinite reverse; }
+    @keyframes floatOne { 0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)} }
+    @keyframes floatTwo { 0%,100%{transform:translateY(0)}50%{transform:translateY(12px)} }
+    .card-kicker { display:flex;justify-content:space-between;align-items:center;font: 9px var(--mono);letter-spacing:.11em;color:#96a5a2; }
+    .card-kicker b { color:var(--accent);font-weight:400; }
+    .orbit-card strong { display:block;margin-top:13px;font:600 19px var(--display);letter-spacing:-.055em; }
+    .card-bars { display:flex;gap:4px;height:24px;align-items:flex-end;margin-top:12px; }
+    .card-bars i { width:13px;display:block;background:linear-gradient(to top,#56894a,var(--accent)); }
+    .card-bars i:nth-child(1){height:9px}.card-bars i:nth-child(2){height:17px}.card-bars i:nth-child(3){height:12px}.card-bars i:nth-child(4){height:23px}.card-bars i:nth-child(5){height:18px}.card-bars i:nth-child(6){height:22px}
+    .mini-route { display:flex;align-items:center;gap:6px;margin-top:15px; }
+    .mini-route span { font:8px var(--mono);color:#b7c6b6; }
+    .mini-route i { width:19px;height:1px;background:var(--accent);position:relative; }
+    .mini-route i::after{content:'';position:absolute;right:-1px;top:-2px;height:5px;width:5px;border-right:1px solid var(--accent);border-top:1px solid var(--accent);transform:rotate(45deg)}
+    .tiny-scan { width:100%;height:33px;display:flex;align-items:center;margin-top:11px; }
+    .tiny-scan svg { width:100%; height:100%; }
+    .hero-bottom { position:relative;z-index:5;border-top:1px solid rgba(255,255,255,.1); }
+    .hero-bottom-inner { min-height: 68px; display:flex;align-items:center;justify-content:space-between;gap:28px; }
+    .hero-bottom-label { flex:0 0 auto; font: 9px var(--mono);letter-spacing:.13em;color:#8d958c; }
+    .hero-bottom-links { display:flex;gap:35px;align-items:center;overflow:hidden; }
+    .hero-bottom-links span { font:600 11px var(--display);letter-spacing:.10em;color:#c1c8c3;white-space:nowrap; }
+    .hero-bottom-links .star { color:var(--accent);font-size:15px; }
+    .section { padding: 128px 0;position:relative; }
+    .section-kicker { color:var(--accent);font:10px var(--mono);text-transform:uppercase;letter-spacing:.13em;display:inline-flex;align-items:center;gap:14px; }
+    .section-kicker::before { content:'';width:29px;height:1px;background:var(--accent); }
+    .section-heading { font-family:var(--display);font-size:clamp(47px,5.4vw,78px);line-height:1.08;letter-spacing:-.068em;font-weight:600;margin:20px 0; }
+    .section-heading .dim {color:#838b89}.section-heading .green {color:var(--accent)}
+    .section-subheading {color:#9ba4a1;max-width:455px;font-size:15px;line-height:1.8; }
+    .services { background: #0e1115; }
+    .section-top {display:flex;justify-content:space-between;align-items:flex-end;gap:60px;margin-bottom:58px;}
+    .section-top .section-heading { margin-bottom:0; }
+    .section-top .section-subheading {margin:0 0 7px;}
+    .service-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.095);border:1px solid rgba(255,255,255,.095); }
+    .service-card {min-height:337px;background:#11151a;position:relative;padding:34px 34px 33px;overflow:hidden;transition:background .35s;}
+    .service-card::after { content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(199,255,96,.085),transparent 55%);opacity:0;transition:opacity .3s; }
+    .service-card:hover { background:#151b1c; }.service-card:hover::after {opacity:1;}
+    .service-top {display:flex;justify-content:space-between;align-items:flex-start;}
+    .service-index {font:10px var(--mono);color:#7a8a7f;letter-spacing:.12em;}
+    .service-arrow {width:36px;height:36px;border:1px solid #3b4542;display:grid;place-items:center;color:var(--accent);font-size:23px;transition:background .25s,color .25s,transform .25s;}
+    .service-card:hover .service-arrow {background:var(--accent);color:var(--bg);transform:rotate(45deg);}
+    .service-art {height:105px;position:relative;margin:6px 0 7px;display:flex;align-items:center;}
+    .service-art svg {width:112px;height:100px;overflow:visible;}
+    .service-art .stroke {fill:none;stroke:#a1ea69;stroke-width:1.35;}.service-art .ghost {fill:none;stroke:#6a8373;stroke-width:1;opacity:.65}.service-art .fill {fill:#c7ff60;}
+    .service-card h3 {font:600 22px var(--display);letter-spacing:-.052em;margin:0 0 10px;}
+    .service-card p {font-size:13px;line-height:1.8;color:#9aa4a1;max-width:320px;margin:0;}
+    .service-bottom {display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:20px;}
+    .service-bottom .tag {font:9px var(--mono);letter-spacing:.07em;color:#77877c;}
+    .service-bottom .tag span {color:#b4c3b6;}
+    .manifesto { padding: 145px 0;overflow:hidden;background:#0a0d0f; }
+    .manifesto::before {content:'';position:absolute;left:-260px;top:15%;height:700px;width:700px;border-radius:50%;background:radial-gradient(circle,rgba(112,99,255,.12),transparent 67%);pointer-events:none;}
+    .manifesto-grid {display:grid;grid-template-columns:.87fr 1.13fr;align-items:center;gap:90px;}
+    .manifesto-copy .section-heading { font-size:clamp(48px,5.3vw,77px); }
+    .manifesto-copy p {font-size:15px;line-height:1.85;color:#a1aaa6;max-width:480px;margin-bottom:32px;}
+    .text-link {display:inline-flex;align-items:center;gap:15px;color:var(--accent);font:700 13px var(--body);border-bottom:1px solid rgba(199,255,96,.55);padding-bottom:10px;}
+    .text-link:hover {gap:23px;}
+    .engine {position:relative;height:470px;border:1px solid #2a3233;background:radial-gradient(ellipse at center,rgba(28,61,50,.19),transparent 60%),#101519;overflow:hidden;}
+    .engine::before {content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(199,255,96,.052) 1px,transparent 1px),linear-gradient(to bottom,rgba(199,255,96,.052) 1px,transparent 1px);background-size:34px 34px;}
+    .engine-top {position:absolute;z-index:3;top:23px;left:27px;right:27px;display:flex;justify-content:space-between;align-items:center;color:#a8b5aa;font:9px var(--mono);letter-spacing:.12em;}
+    .engine-dot {width:7px;height:7px;display:inline-block;background:var(--accent);border-radius:50%;margin-right:6px;box-shadow:0 0 12px rgba(199,255,96,.6);}
+    .engine-svg {position:absolute;inset:20px 0 0;width:100%;height:100%;}
+    .engine-float {position:absolute;border:1px solid #3f5444;background:rgba(16,23,22,.86);backdrop-filter:blur(12px);padding:12px 14px;z-index:4;font:10px var(--mono);color:#d9e6d1;}
+    .engine-float span {display:block;color:#90a391;font:8px var(--mono);margin-bottom:8px;}
+    .engine-float.a {left:37px;top:121px;}.engine-float.b {right:33px;top:132px;}.engine-float.c {left:50%;bottom:58px;transform:translateX(-50%);text-align:center;}
+    .engine-foot {position:absolute;bottom:18px;right:25px;color:#657b6c;font:8px var(--mono);letter-spacing:.15em;}
+    .process {background: #101419;padding: 133px 0 124px;}
+    .process-head {display:flex;justify-content:space-between;align-items:flex-end;gap:40px;}
+    .process-head p {color:#9da9a4;max-width:400px;line-height:1.8;font-size:15px;margin:0 0 16px;}
+    .steps {display:grid;grid-template-columns:repeat(3,1fr);margin-top:76px;border-top:1px solid #35413a;}
+    .step {padding:40px 34px 20px 0;position:relative;min-height:232px;}
+    .step:not(:first-child){padding-left:40px;border-left:1px solid #29332e;}
+    .step::before {content:'';height:7px;width:7px;border-radius:50%;background:var(--accent);position:absolute;top:-4px;left:0;box-shadow:0 0 12px var(--accent);}
+    .step:not(:first-child)::before{left:40px;}
+    .step-index {font:10px var(--mono);color:var(--accent);letter-spacing:.15em;}
+    .step h3 {font:600 29px var(--display);letter-spacing:-.06em;margin:30px 0 13px;}
+    .step p {font-size:13px;line-height:1.8;color:#98a49c;max-width:300px;margin:0;}
+    .contact {background:#c7ff60;color:#0d1408;position:relative;overflow:hidden;padding:114px 0 107px;}
+    .contact::before {content:'';position:absolute;right:-250px;top:-310px;width:750px;height:750px;border:1px solid rgba(18,39,3,.17);border-radius:50%;box-shadow:0 0 0 70px rgba(22,50,3,.035),0 0 0 140px rgba(22,50,3,.03),0 0 0 210px rgba(22,50,3,.02);}
+    .contact-grid {display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center;position:relative;z-index:2;}
+    .contact .section-kicker {color:#304917;}.contact .section-kicker::before{background:#304917;}
+    .contact h2 {font:700 clamp(57px,6.25vw,92px)/.99 var(--display);letter-spacing:-.079em;margin:25px 0 26px;}
+    .contact h2 span {display:block;color:#628e25;}
+    .contact-copy > p {font-size:15px;line-height:1.8;max-width:450px;color:#354c1e;}
+    .contact-badge {display:flex;gap:15px;align-items:center;margin-top:58px;font:10px var(--mono);letter-spacing:.08em;color:#455c2d;}
+    .contact-badge .small-symbol {width:45px;height:45px;border:1px solid #719a3e;display:grid;place-items:center;font:700 22px var(--display);}
+    .contact-form {background:#11181a;padding:38px 39px 31px;box-shadow:24px 24px 0 rgba(16,44,0,.1);color:#ecf5eb;}
+    .form-top {display:flex;justify-content:space-between;align-items:center;padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid #36413a;}
+    .form-top h3 {font:600 23px var(--display);letter-spacing:-.05em;margin:0;}
+    .form-top span {color:#a5c39a;font:10px var(--mono);}
+    .form-row {display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+    .field {display:block;margin-bottom:19px;}
+    .field span {display:block;color:#abbcaf;font:10px var(--mono);letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px;}
+    .field input,.field textarea,.field select {border:1px solid #36413b;outline:none;background:#161e1e;color:#edf4ef;width:100%;padding:13px 14px;border-radius:0;font:13px var(--body);transition:border-color .2s;}
+    .field input::placeholder,.field textarea::placeholder{color:#737f76;}
+    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent)}
+    .field textarea{resize:vertical;min-height:88px;}
+    .contact-form button {width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--accent);border:none;padding:15px 18px;color:#11190b;font:700 13px var(--body);transition:background .2s;}
+    .contact-form button:hover{background:#ddffa7}
+    .form-note {color:#89988b;font:9px var(--mono);line-height:1.6;margin:13px 0 0;}
+    .form-message {display:none;color:var(--accent);background:#253427;padding:12px 14px;font:11px/1.7 var(--body);margin-top:13px;}
+    .form-message.show{display:block}.form-message.error{color:#ffb7a5;background:#3b231e}
+    .footer {background:#090b0e;padding:62px 0 26px;}
+    .footer-grid {display:flex;justify-content:space-between;align-items:flex-start;gap:45px;padding-bottom:56px;}
+    .footer-description {color:#8a948e;font-size:13px;line-height:1.8;max-width:280px;margin-top:23px;}
+    .footer-columns {display:flex;gap:95px;}
+    .footer-column h4 {color:#dce5db;font:10px var(--mono);letter-spacing:.1em;margin:0 0 22px;text-transform:uppercase;}
+    .footer-column a,.footer-column span{display:block;color:#919d94;font-size:12px;margin-bottom:13px;transition:color .2s;}
+    .footer-column a:hover{color:var(--accent);}
+    .footer-bottom {border-top:1px solid #26302a;padding-top:24px;display:flex;justify-content:space-between;gap:20px;color:#7b897d;font:10px var(--mono);letter-spacing:.02em;}
+    .footer-bottom .domain {color:#b2c3af;}
+    .reveal {opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+    .reveal.visible {opacity:1;transform:translateY(0);}
+    @media (min-width:1700px) {.hero h1{font-size:112px}.hero {min-height:855px}.hero-grid{min-height:700px}}
+    @media (max-width:1250px) {
+      .container{width:min(100% - 76px,1420px)}.nav-links{gap:25px;margin-right:15px}.hero h1{font-size:clamp(67px,7vw,90px)}.hero-grid{grid-template-columns:53% 47%}.hero-visual{transform:scale(.88);transform-origin:center;}.hero-description{max-width:450px}.orbit-card.one{right:-13px}.section{padding:104px 0}.manifesto-grid{gap:45px}.footer-columns{gap:55px}
+    }
+    @media (max-width:980px) {
+      .site-nav{height:76px}.site-nav.scrolled{height:70px}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(11,15,17,.98);border-bottom:1px solid var(--stroke);padding:24px 40px;flex-direction:column;align-items:flex-start;gap:22px;margin:0}.nav-links.open{display:flex}.menu-btn{display:flex}.nav-cta{padding:12px 13px 12px 17px}.hero{padding-top:76px}.hero-grid{grid-template-columns:1fr;min-height:auto}.hero-copy{padding:88px 0 0}.hero h1{font-size:clamp(77px,11vw,106px)}.hero-visual{height:570px;transform:scale(.88);margin:0}.hero-footnote{margin-top:45px}.hero-side-label{display:none}.hero-bottom-links{gap:20px}.section-top{display:block}.section-top .section-subheading{margin-top:23px}.service-grid{grid-template-columns:repeat(2,1fr)}.manifesto-grid{grid-template-columns:1fr;gap:50px}.manifesto{padding:110px 0}.engine{height:460px}.process-head{display:block}.process-head p{margin:20px 0 0}.contact-grid{grid-template-columns:1fr;gap:42px}.contact h2{font-size:75px}.contact-form{max-width:620px}.footer-columns{gap:30px}
+    }
+    @media (max-width:650px) {
+      .container{width:calc(100% - 40px)}.site-nav{height:70px}.site-nav.scrolled{height:66px}.nav-cta{display:none}.brand-symbol{height:37px;width:37px}.brand-wordmark{font-size:17px}.brand-wordmark small{font-size:7px;letter-spacing:3.2px}.hero{padding-top:70px}.hero-copy{padding:65px 0 0}.eyebrow{font-size:9px;gap:11px;letter-spacing:.035em}.hero h1{font-size:clamp(63px,14vw,87px);margin-top:32px;letter-spacing:-.078em}.hero-description{font-size:14px;line-height:1.75;max-width:410px}.hero-ctas{gap:15px}.btn-primary{padding:16px 17px;font-size:12px;min-height:53px;gap:14px}.btn-secondary{font-size:12px}.hero-footnote{margin-top:37px;font-size:9px}.hero-visual{height:430px;transform:scale(.62);width:600px;left:50%;margin-left:-300px;margin-top:-18px;margin-bottom:-20px}.hero-bottom-inner{min-height:61px}.hero-bottom-label{display:none}.hero-bottom-links{gap:15px;width:100%;justify-content:space-between}.hero-bottom-links span{font-size:8px;letter-spacing:.03em}.hero-bottom-links span:nth-of-type(n+6){display:none}.section{padding:84px 0}.section-heading{font-size:clamp(43px,10vw,62px)}.section-subheading{font-size:14px}.section-top{margin-bottom:36px}.service-grid{grid-template-columns:1fr}.service-card{min-height:280px;padding:28px}.service-art{height:87px}.service-art svg{height:86px}.service-bottom{margin-top:24px}.manifesto-grid{gap:40px}.manifesto-copy .section-heading{font-size:51px}.manifesto-copy p{font-size:14px}.engine{height:355px}.engine-float.a{left:13px;top:94px}.engine-float.b{right:12px;top:98px}.engine-float.c{bottom:37px}.engine-float{padding:10px 12px;font-size:9px}.engine-top{left:15px;right:15px;top:18px;font-size:8px}.process{padding:83px 0}.steps{grid-template-columns:1fr;gap:0;margin-top:45px}.step,.step:not(:first-child){padding:28px 0 30px 22px;border-left:1px solid #35413a;border-top:0;min-height:0}.step::before,.step:not(:first-child)::before{left:-4px;top:30px}.step h3{margin:13px 0 7px}.contact{padding:85px 0 80px}.contact h2{font-size:clamp(57px,13vw,76px)}.contact-copy > p{font-size:14px}.contact-badge{margin-top:36px}.contact-form{padding:27px 22px;box-shadow:10px 10px 0 rgba(16,44,0,.1)}.form-row{grid-template-columns:1fr;gap:0}.footer{padding-top:58px}.footer-grid{display:block}.footer-columns{margin-top:45px;justify-content:space-between;gap:15px}.footer-bottom{display:block;line-height:2}.footer-bottom span{display:block}.footer-description{max-width:400px}
+    }
+    @media (prefers-reduced-motion:reduce) {*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-nav" id="site-nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Aozal Technologies home">
+        <span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M6 28.5L17.6 7.5H24.2L35 28.5H27.6L20.4 13.7L12.9 28.5H6Z" fill="#10180A"/><path d="M15.1 23.6H26.2L28.5 28.5H12.7L15.1 23.6Z" fill="#10180A"/></svg></span>
+        <span class="brand-wordmark">AOZAL <small>TECHNOLOGIES</small></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="services.html">Services</a><a href="about.html">About us</a><a href="#expertise">Our approach</a><a href="#process">Process</a><a href="contact.html">Contact</a><a href="support.html">Support</a>
+      </nav>
+      <div class="nav-actions"><a class="nav-cta" href="#contact">Let's talk <span class="square-arrow" aria-hidden="true">↗</span></a><button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7H21M3 12H21M3 17H21"/></svg></button></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="signal" aria-hidden="true"></span> INTELLIGENCE. INNOVATION. IMPACT.</div>
+          <h1 id="hero-heading">Building<br><span class="indent">what's</span><span class="accent-line">next</span></h1>
+          <p class="hero-description">From intelligent AI agents to exceptional digital platforms, we turn bold ideas into powerful technology that makes a difference.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Start a project <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 16 16 4M5 4h11v11"/></svg></a>
+            <a href="services.html" class="btn-secondary">Discover what we do <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="hero-footnote"><span class="line"></span> INDEPENDENT THINKING. UNLIMITED POSSIBILITIES.</div>
+        </div>
+        <div class="hero-visual" aria-label="Decorative futuristic AI network illustration" role="img">
+          <div class="visual-halo"></div>
+          <div class="orb-ring outer"></div><div class="orb-ring mid"></div><div class="orb-ring inner"></div><div class="orb-ring tilt"></div><div class="orb-ring tilt2"></div>
+          <div class="orb">
+            <svg class="orb-grid" viewBox="0 0 357 357" fill="none" aria-hidden="true"><g stroke="#9AEBB1" stroke-opacity=".25" stroke-width=".8"><path d="M37 101 84 50 148 83 224 45 297 101 326 171 277 255 197 318 102 287 39 210 37 101Z"/><path d="M84 50 100 148 37 210 148 83 197 318 224 45 277 255 39 210 297 101 102 287 326 171 100 148 277 255 148 83"/><path d="m84 50 213 51M37 101 197 318M102 287 224 45"/></g><g fill="#D8FFB5"><circle cx="84" cy="50" r="2.5"/><circle cx="297" cy="101" r="3"/><circle cx="37" cy="101" r="2"/><circle cx="39" cy="210" r="3"/><circle cx="277" cy="255" r="2"/><circle cx="197" cy="318" r="2.5"/><circle cx="148" cy="83" r="2"/></g></svg>
+            <div class="orb-gloss"></div><div class="orb-letter">A</div><div class="orb-caption">AOZAL / DIGITAL CORE</div>
+          </div>
+          <div class="orbit-card one" aria-hidden="true"><div class="card-kicker">NEXT-GEN SYSTEMS <b>↗</b></div><strong>AI-powered.</strong><div class="card-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="orbit-card two" aria-hidden="true"><div class="card-kicker">OUR WORKFLOW <b>● LIVE</b></div><strong>Built to evolve.</strong><div class="mini-route"><span>IDEA</span><i></i><span>BUILD</span><i></i><span>IMPACT</span></div></div>
+          <div class="orbit-card three" aria-hidden="true"><div class="card-kicker">CONNECTED FUTURES <b>✳</b></div><div class="tiny-scan"><svg viewBox="0 0 165 34" fill="none"><path d="M1 24H23L34 13 44 21 57 7 70 21 85 10 98 22 113 7 128 20 143 12 164 16" stroke="#C7FF60" stroke-width="1.6"/><path d="M1 32H164" stroke="#4A6150" stroke-width=".6" stroke-dasharray="3 4"/></svg></div><div class="card-kicker" style="margin-top:6px">IDEATE / ENGINEER / SCALE</div></div>
+        </div>
+      </div>
+      <div class="hero-side-label" aria-hidden="true">ENGINEERED FOR WHAT'S NEXT — EST. 2026</div>
+      <div class="hero-bottom"><div class="container hero-bottom-inner"><div class="hero-bottom-label">/ OUR UNIVERSE</div><div class="hero-bottom-links" aria-label="Specialties"><span>AI & AUTOMATION</span><span class="star">✳</span><span>CUSTOM SOFTWARE</span><span class="star">✳</span><span>DIGITAL COMMERCE</span><span class="star">✳</span><span>TECH EDUCATION</span></div></div></div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-top reveal"><div><div class="section-kicker">01 / WHAT WE DO</div><h2 class="section-heading" id="services-heading">One partner.<br><span class="dim">Many possibilities.</span></h2></div><p class="section-subheading">Strategy, engineering and imagination—working together to create technology that delivers value, not just features.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">01 / INTELLIGENCE</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><circle class="ghost" cx="55" cy="50" r="42" stroke-dasharray="3 5"/><circle class="stroke" cx="55" cy="50" r="28"/><circle class="ghost" cx="55" cy="50" r="13"/><path class="stroke" d="M55 8V92M13 50H97M25 20 85 79M85 20 25 79"/><circle class="fill" cx="55" cy="50" r="5"/><circle class="fill" cx="55" cy="8" r="3"/><circle class="fill" cx="97" cy="50" r="3"/></svg></div><h3>AI & Intelligent Agents</h3><p>Custom AI assistants, autonomous workflows, smart chatbots and applied machine learning built around real business needs.</p><div class="service-bottom"><span class="tag">AI AGENTS <span>·</span> LLMs <span>·</span> ML</span></div></article>
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">02 / ENGINEERING</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><rect class="ghost" x="8" y="13" width="73" height="62" rx="2"/><rect class="stroke" x="27" y="27" width="73" height="62" rx="2"/><path class="stroke" d="M27 42H100M42 56 35 63 42 70M85 56 92 63 85 70M64 54 57 73"/><circle class="fill" cx="35" cy="35" r="2"/><circle class="fill" cx="42" cy="35" r="2"/><circle class="fill" cx="49" cy="35" r="2"/></svg></div><h3>Custom Software</h3><p>Beautiful, scalable web platforms, SaaS products, internal tools and APIs crafted for the way your business operates.</p><div class="service-bottom"><span class="tag">SAAS <span>·</span> WEB APPS <span>·</span> APIs</span></div></article>
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">03 / EFFICIENCY</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><rect class="stroke" x="6" y="34" width="24" height="24" rx="2"/><rect class="stroke" x="77" y="8" width="25" height="25" rx="2"/><rect class="stroke" x="77" y="68" width="25" height="25" rx="2"/><path class="stroke" d="M30 46H51V20H77M51 46V80H77"/><path class="stroke" d="m69 14 8 6-8 6M69 74l8 6-8 6"/><circle class="fill" cx="18" cy="46" r="4"/><circle class="fill" cx="89" cy="20" r="4"/><circle class="fill" cx="89" cy="80" r="4"/></svg></div><h3>Automation & Integrations</h3><p>Connect your tools, streamline repetitive work and create seamless operations with smart end-to-end automations.</p><div class="service-bottom"><span class="tag">WORKFLOWS <span>·</span> INTEGRATIONS</span></div></article>
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">04 / GROWTH</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><path class="stroke" d="M14 24H25L37 71H88L99 35H29M44 47H93M54 35V70M76 35V70"/><circle class="fill" cx="45" cy="84" r="5"/><circle class="fill" cx="83" cy="84" r="5"/><path class="ghost" d="M68 8v22M57 19h22"/></svg></div><h3>E-Commerce Solutions</h3><p>Digital stores, business systems and marketplace solutions designed for smooth customer journeys and long-term growth.</p><div class="service-bottom"><span class="tag">STOREFRONTS <span>·</span> COMMERCE</span></div></article>
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">05 / EXPERIENCE</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><rect class="ghost" x="9" y="15" width="80" height="66"/><rect class="stroke" x="26" y="30" width="77" height="62"/><path class="stroke" d="M26 43H103M37 55H71M37 65H91M37 75H60"/><circle class="fill" cx="35" cy="37" r="2"/><circle class="fill" cx="42" cy="37" r="2"/><path class="stroke" d="m72 63 18 18-7-1-4 8-5-3 4-8-6-5z"/></svg></div><h3>Web & Digital Experiences</h3><p>High-performance websites and considered interfaces that blend bold visual design with intuitive user experience.</p><div class="service-bottom"><span class="tag">UI / UX <span>·</span> DESIGN <span>·</span> WEB</span></div></article>
+          <article class="service-card reveal"><div class="service-top"><span class="service-index">06 / KNOWLEDGE</span><a class="service-arrow" href="#contact" aria-label="Inquire about this service">↗</a></div><div class="service-art"><svg viewBox="0 0 112 100" aria-hidden="true"><path class="stroke" d="M8 27 55 8 103 27 55 46 8 27ZM26 36V64L55 81 84 64V36"/><path class="ghost" d="M102 29V66M98 71 102 61 106 71"/><path class="stroke" d="M45 59h20M45 68h20"/><circle class="fill" cx="55" cy="46" r="3"/></svg></div><h3>Digital Skills & Training</h3><p>Practical learning in modern technology, e-commerce and digital tools to equip people with skills for tomorrow.</p><div class="service-bottom"><span class="tag">LEARNING <span>·</span> UPSKILLING</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section manifesto" id="expertise" aria-labelledby="manifesto-heading">
+      <div class="container manifesto-grid">
+        <div class="manifesto-copy reveal"><div class="section-kicker">02 / THE AOZAL MINDSET</div><h2 class="section-heading" id="manifesto-heading">We don't just<br>write code.<br><span class="green">We create<br>momentum.</span></h2><p>Great technology begins with a better question. We combine creative ambition with rigorous engineering to build solutions that feel effortless, work intelligently and grow with you.</p><a class="text-link" href="#process">How we make it happen <span aria-hidden="true">↗</span></a></div>
+        <div class="engine reveal" aria-label="Illustration of connected technology systems" role="img">
+          <div class="engine-top"><span>AOZAL / SYSTEM ARCHITECTURE</span><span><span class="engine-dot"></span> CONNECTED</span></div>
+          <svg class="engine-svg" viewBox="0 0 650 450" fill="none" aria-hidden="true"><defs><linearGradient id="flow" x1="0" y1="0" x2="650" y2="450"><stop stop-color="#7069FF"/><stop offset=".5" stop-color="#C7FF60"/><stop offset="1" stop-color="#43B3B0"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="4"/></filter></defs>
+            <circle cx="325" cy="214" r="168" stroke="#92b09b" stroke-opacity=".23" stroke-dasharray="4 7"/><circle cx="325" cy="214" r="125" stroke="#C7FF60" stroke-opacity=".25"/><circle cx="325" cy="214" r="74" stroke="#C7FF60" stroke-opacity=".4"/>
+            <g stroke="url(#flow)" stroke-width="1.4" opacity=".7"><path d="M325 214 136 129M325 214 509 133M325 214 137 332M325 214 523 329M325 214 325 34M325 214 325 395M136 129 325 34 509 133 523 329 325 395 137 332 136 129Z"/><path d="M136 129 509 133M137 332 523 329" stroke-dasharray="4 7"/></g>
+            <g fill="#14231d" stroke="#C7FF60" stroke-width="1.4"><circle cx="136" cy="129" r="9"/><circle cx="509" cy="133" r="9"/><circle cx="137" cy="332" r="9"/><circle cx="523" cy="329" r="9"/><circle cx="325" cy="34" r="9"/><circle cx="325" cy="395" r="9"/></g>
+            <g fill="#C7FF60"><circle cx="136" cy="129" r="2.8"/><circle cx="509" cy="133" r="2.8"/><circle cx="137" cy="332" r="2.8"/><circle cx="523" cy="329" r="2.8"/><circle cx="325" cy="34" r="2.8"/><circle cx="325" cy="395" r="2.8"/></g>
+            <circle cx="325" cy="214" r="65" fill="#173127" stroke="#A6F779" stroke-width="1.5"/><circle cx="325" cy="214" r="55" fill="#13271f" stroke="#6ca85b" stroke-opacity=".7"/><text x="325" y="233" font-family="Space Grotesk,Arial" font-size="68" font-weight="700" fill="#D4FFAE" text-anchor="middle">A</text>
+            <circle cx="325" cy="214" r="70" stroke="#C7FF60" stroke-opacity=".5" stroke-dasharray="3 10"/>
+            <path d="M212 214H250M400 214H437" stroke="#C7FF60" stroke-opacity=".45"/><circle cx="325" cy="214" r="105" stroke="#C7FF60" stroke-opacity=".22" stroke-dasharray="3 10"/>
+          </svg>
+          <div class="engine-float a"><span>INPUT LAYER</span>IDEAS + DATA</div><div class="engine-float b"><span>INTELLIGENCE LAYER</span>DESIGN + AI</div><div class="engine-float c"><span>OUTPUT</span>REAL-WORLD IMPACT ↗</div><div class="engine-foot">INFINITE POSSIBILITIES / 001</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process" aria-labelledby="process-heading"><div class="container"><div class="process-head reveal"><div><div class="section-kicker">03 / HOW WE WORK</div><h2 class="section-heading" id="process-heading">Clarity in thinking.<br><span class="dim">Excellence in doing.</span></h2></div><p>A focused, collaborative approach that moves from the first spark of an idea to something meaningful in the real world.</p></div><div class="steps"><article class="step reveal"><span class="step-index">STEP / 01</span><h3>Discover</h3><p>We listen, ask better questions and shape a clear strategy around your goals, users and opportunities.</p></article><article class="step reveal"><span class="step-index">STEP / 02</span><h3>Engineer</h3><p>We design and develop purposeful solutions with a strong focus on quality, usability and performance.</p></article><article class="step reveal"><span class="step-index">STEP / 03</span><h3>Evolve</h3><p>We refine, improve and create the foundation for continued innovation as your business grows.</p></article></div></div></section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-heading"><div class="container contact-grid"><div class="contact-copy reveal"><div class="section-kicker">04 / LET'S COLLABORATE</div><h2 id="contact-heading">Your next<br>big thing<br><span>starts here.</span></h2><p>Have an ambitious idea, a business challenge or something entirely new in mind? We'd love to hear what you're imagining.</p><div class="contact-badge"><span class="small-symbol">↗</span><span>OPEN TO NEW IDEAS<br>AND MEANINGFUL COLLABORATIONS</span></div></div><form class="contact-form reveal" id="contact-form"><input type="hidden" name="type" value="inquiry"><div style="position:absolute;left:-10000px" aria-hidden="true"><label for="landing-website">Website</label><input type="text" name="website" id="landing-website" tabindex="-1" autocomplete="off"></div><div class="form-top"><h3>Tell us about your idea.</h3><span>PROJECT INQUIRY / 01</span></div><div class="form-row"><label class="field"><span>Your name *</span><input type="text" name="name" minlength="2" maxlength="100" placeholder="Your full name" required autocomplete="name"/></label><label class="field"><span>Email address *</span><input type="email" name="email" maxlength="254" placeholder="you@company.com" required autocomplete="email"/></label></div><label class="field"><span>What are you looking for?</span><select name="service"><option value="">Select a service</option><option>App Development</option><option>AI Services</option><option>Web Development</option><option>DevOps</option><option>E-Commerce</option><option>Something else</option></select></label><label class="field"><span>Your project *</span><textarea name="project" minlength="10" maxlength="5000" placeholder="Tell us a little about what you'd like to build..." required></textarea></label><button type="submit">Send project inquiry <span aria-hidden="true">↗</span></button><p class="form-note">GENERAL INQUIRIES → info@aozaltechnologies.com · <a href="support.html" style="color:var(--accent)">Need support?</a></p><div class="form-message" id="form-message" role="status" aria-live="polite"></div></form></div></section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-grid"><div><a href="#top" class="brand" aria-label="Aozal Technologies home"><span class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M6 28.5L17.6 7.5H24.2L35 28.5H27.6L20.4 13.7L12.9 28.5H6Z" fill="#10180A"/><path d="M15.1 23.6H26.2L28.5 28.5H12.7L15.1 23.6Z" fill="#10180A"/></svg></span><span class="brand-wordmark">AOZAL <small>TECHNOLOGIES</small></span></a><p class="footer-description">Building intelligent technology and unforgettable digital experiences for what's next.</p></div><div class="footer-columns"><div class="footer-column"><h4>Explore</h4><a href="services.html">Our services</a><a href="about.html">About us</a><a href="#expertise">Our approach</a><a href="#process">How we work</a><a href="contact.html">Company inquiries</a><a href="support.html">Get support</a></div><div class="footer-column"><h4>What we do</h4><a href="#services">AI solutions</a><a href="#services">Software development</a><a href="#services">E-commerce</a><a href="#services">Digital training</a></div><div class="footer-column"><h4>Find us</h4><span>Pakistan · Working globally</span><a href="#contact">Start a conversation ↗</a><a href="https://aozaltechnologies.com" target="_blank" rel="noopener">aozaltechnologies.com ↗</a></div></div></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> AOZAL TECHNOLOGIES. ALL RIGHTS RESERVED.</span><span>BUILT FOR THE FUTURE. <span class="domain">AOZALTECHNOLOGIES.COM</span></span></div></footer>
+  <script>
+    (function(){
+      const nav=document.getElementById('site-nav'); const menu=document.getElementById('menu-btn'); const links=document.getElementById('nav-links');
+      const updateNav=()=>nav.classList.toggle('scrolled',window.scrollY>20);
+      window.addEventListener('scroll',updateNav,{passive:true});updateNav();
+      menu.addEventListener('click',()=>{const open=links.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
+      links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation')}));
+      const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+      document.querySelectorAll('.reveal').forEach((el,i)=>{if(el.classList.contains('service-card'))el.style.transitionDelay=((i%3)*85)+'ms';revealObserver.observe(el)});
+      document.querySelectorAll('.service-card').forEach(card=>card.addEventListener('pointermove',e=>{const b=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-b.left)+'px');card.style.setProperty('--my',(e.clientY-b.top)+'px')}));
+      document.getElementById('year').textContent=new Date().getFullYear();
+      document.getElementById('contact-form').addEventListener('submit',async function(e){
+        e.preventDefault();
+        const form=e.currentTarget;const message=document.getElementById('form-message');
+        const btn=form.querySelector('button[type=submit]');const oldHTML=btn.innerHTML;
+        if(!form.reportValidity())return;
+        btn.disabled=true;btn.textContent='Sending your inquiry…';message.className='form-message';message.textContent='';
+        try{
+          if(location.protocol==='file:')throw new Error('Open this website using the included backend server before sending messages.');
+          const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),20000);
+          let response;
+          try{response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form).entries())),signal:controller.signal})}
+          finally{clearTimeout(timer)}
+          const result=await response.json();
+          if(!response.ok||!result.ok)throw new Error(result.error||'Unable to send this message. Please try again.');
+          message.textContent='Your inquiry was sent successfully to info@aozaltechnologies.com.';
+          message.className='form-message show';form.reset();
+        }catch(error){message.textContent=(error.name==='AbortError'?'The request timed out. Please try again.':error.message)+' You can also email info@aozaltechnologies.com directly.';message.className='form-message show error'}
+        finally{btn.disabled=false;btn.innerHTML=oldHTML}
+      });
+      const activeObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}})},{rootMargin:'-25% 0px -65% 0px'});
+      document.querySelectorAll('main section[id]').forEach(s=>activeObserver.observe(s));
+    })();
+  </script>
+</body>
+</html>

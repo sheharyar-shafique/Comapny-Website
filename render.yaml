@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: aozal-technologies
+    runtime: python
+    plan: free
+    buildCommand: python -m compileall -q backend && python -m unittest discover -s tests -q
+    startCommand: python backend/server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: EMAIL_PROVIDER
+        value: resend
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM
+        value: AOZAL Website <notifications@notify.aozaltechnologies.com>
+      - key: INFO_EMAIL
+        value: info@aozaltechnologies.com
+      - key: SUPPORT_EMAIL
+        value: support@aozaltechnologies.com
+      - key: TRUSTED_PROXY_HOPS
+        value: '0'

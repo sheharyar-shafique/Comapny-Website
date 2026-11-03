@@ -1,0 +1,176 @@
+[
+  {
+    "title": "Mobile App Development",
+    "slug": "mobile-app-development",
+    "category": "App Development",
+    "lead": "From an initial idea to a production-ready app on the devices your customers use."
+  },
+  {
+    "title": "Android App Development",
+    "slug": "android-app-development",
+    "category": "App Development",
+    "lead": "Purpose-built Android applications designed for smooth performance across devices."
+  },
+  {
+    "title": "Flutter App Development",
+    "slug": "flutter-app-development",
+    "category": "App Development",
+    "lead": "One beautifully engineered experience across iOS and Android, built with Flutter."
+  },
+  {
+    "title": "Flutter Flow Development",
+    "slug": "flutter-flow-development",
+    "category": "App Development",
+    "lead": "Visual app creation with FlutterFlow, backed by a plan for real-world delivery."
+  },
+  {
+    "title": "React Native Development",
+    "slug": "react-native-development",
+    "category": "App Development",
+    "lead": "Cross-platform mobile experiences using React\u2019s component model and native capabilities."
+  },
+  {
+    "title": "Bubble.io Development",
+    "slug": "bubble-io-development",
+    "category": "App Development",
+    "lead": "Custom workflows and web applications built on the Bubble visual platform."
+  },
+  {
+    "title": "iOS App Development",
+    "slug": "ios-app-development",
+    "category": "App Development",
+    "lead": "Native iPhone and iPad apps with the polish users expect from Apple platforms."
+  },
+  {
+    "title": "AI Call Bots Services",
+    "slug": "ai-call-bots-services",
+    "category": "AI Services",
+    "lead": "Voice-enabled AI agents that answer, guide and route conversations over phone calls."
+  },
+  {
+    "title": "AI Chatbot Services",
+    "slug": "ai-chatbot-services",
+    "category": "AI Services",
+    "lead": "AI chat experiences that answer questions, automate tasks and hand over when needed."
+  },
+  {
+    "title": "Voiceflow AI Services",
+    "slug": "voiceflow-ai-services",
+    "category": "AI Services",
+    "lead": "Conversational experiences built and orchestrated in Voiceflow."
+  },
+  {
+    "title": "GPT Models Services",
+    "slug": "gpt-models-services",
+    "category": "AI Services",
+    "lead": "Practical applications powered by GPT-family models and secure API integrations."
+  },
+  {
+    "title": "Open-Source LLMs Services",
+    "slug": "open-source-llms-services",
+    "category": "AI Services",
+    "lead": "Private or self-hosted language-model solutions with more deployment control."
+  },
+  {
+    "title": "Fine-Tuning Services",
+    "slug": "fine-tuning-services",
+    "category": "AI Services",
+    "lead": "Adapt an existing model to your task using curated examples and responsible evaluation."
+  },
+  {
+    "title": "AI Model Training",
+    "slug": "ai-model-training",
+    "category": "AI Services",
+    "lead": "End-to-end machine learning, from raw data to a monitored predictive model."
+  },
+  {
+    "title": "MERN Development",
+    "slug": "mern-development",
+    "category": "Web Development",
+    "lead": "Full-stack web products built with MongoDB, Express, React and Node.js."
+  },
+  {
+    "title": "Webflow Development",
+    "slug": "webflow-development",
+    "category": "Web Development",
+    "lead": "Premium, responsive websites crafted visually in Webflow."
+  },
+  {
+    "title": "WordPress Development",
+    "slug": "wordpress-development",
+    "category": "Web Development",
+    "lead": "Flexible WordPress websites with easy-to-manage content and polished design."
+  },
+  {
+    "title": "Python Web Development",
+    "slug": "python-web-development",
+    "category": "Web Development",
+    "lead": "Robust web platforms and backend APIs powered by Python."
+  },
+  {
+    "title": "AWS Setup/Maintenance",
+    "slug": "aws-setup-maintenance",
+    "category": "DevOps",
+    "lead": "Cloud infrastructure designed for reliability, security and controlled growth on AWS."
+  },
+  {
+    "title": "DigitalOcean Setup/Maintenance",
+    "slug": "digitalocean-setup-maintenance",
+    "category": "DevOps",
+    "lead": "Straightforward cloud deployment and upkeep on DigitalOcean."
+  },
+  {
+    "title": "Azure Setup/Maintenance",
+    "slug": "azure-setup-maintenance",
+    "category": "DevOps",
+    "lead": "Practical Azure infrastructure for applications, APIs and business systems."
+  },
+  {
+    "title": "Server Migration",
+    "slug": "server-migration",
+    "category": "DevOps",
+    "lead": "Move applications and data between servers with planning, verification and minimal avoidable disruption."
+  },
+  {
+    "title": "TikTok Shop Account Management",
+    "slug": "tiktok-shop-account-management",
+    "category": "E-Commerce",
+    "lead": "Day-to-day TikTok Shop operations organized for stronger store health and growth."
+  },
+  {
+    "title": "FBS Brand Building with Private Label",
+    "slug": "fbs-brand-building-with-private-label",
+    "category": "E-Commerce",
+    "lead": "Build a recognizable private-label brand with seller-managed fulfillment operations."
+  },
+  {
+    "title": "Dropshipping",
+    "slug": "dropshipping",
+    "category": "E-Commerce",
+    "lead": "Build and operate a supplier-fulfilled online selling workflow responsibly."
+  },
+  {
+    "title": "TikTok Shop Restricted Account Reactivation",
+    "slug": "tiktok-shop-restricted-account-reactivation",
+    "category": "E-Commerce",
+    "lead": "Structured account recovery support through accurate evidence and official appeal channels."
+  },
+  {
+    "title": "Overall Violation Handling",
+    "slug": "overall-violation-handling",
+    "category": "E-Commerce",
+    "lead": "Understand, address and prevent e-commerce policy violations with a documented process."
+  },
+  {
+    "title": "eBay Account Setup",
+    "slug": "ebay-account-setup",
+    "category": "E-Commerce",
+    "lead": "Launch an eBay selling account with clean settings and a practical operating foundation."
+  },
+  {
+    "title": "eBay Account Management",
+    "slug": "ebay-account-management",
+    "category": "E-Commerce",
+    "lead": "Organized eBay operations for healthy listings, dependable fulfillment and sustainable sales."
+  }
+]
